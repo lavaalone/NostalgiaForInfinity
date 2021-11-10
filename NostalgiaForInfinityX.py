@@ -5537,6 +5537,8 @@ class NostalgiaForInfinityX(IStrategy):
         if conditions:
             dataframe.loc[:, 'buy'] = reduce(lambda x, y: x | y, conditions)
 
+        # disable all buy conditions
+        dataframe.loc[:, 'buy'] = 0
         return dataframe
 
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
